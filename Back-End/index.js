@@ -118,7 +118,7 @@ app.post(
 app.use("/users", userRoutes);
 app.use("/auth", authRoutes);
 
-// Start the server on port 5000
-app.listen(5000, () => {
-  console.log("Listening on port 5000...");
+// Start the server on port 5911
+app.listen(5911, () => {
+  console.log("Listening on port 5911...");
 });

@@ -65,7 +65,10 @@ function Project() {
     formData.append("file", file);
 
     axios
-      .post("http://localhost:5000/api/upload", formData)
+      .post(
+        "https://hemacore.hattat.com.tr/internportalservice/api/upload",
+        formData
+      )
       .then((response) => {
         toast.success("Dosya Aktarımı Başarılı.", {
           theme: "dark",

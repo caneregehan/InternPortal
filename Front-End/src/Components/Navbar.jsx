@@ -137,7 +137,7 @@ function Navbar({ children }) {
       </nav>
 
       <main>
-        <div>{children}</div>
+        <div className=" ">{children}</div>
       </main>
     </div>
   );

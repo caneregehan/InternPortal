@@ -39,7 +39,7 @@ export default function Kayitol() {
 
     try {
       const response = await axios.get(
-        `http://localhost:5000/users/${username}`
+        `https://hemacore.hattat.com.tr/internportalservice/users/${username}`
       );
 
       if (response.status === 200) {
@@ -52,7 +52,7 @@ export default function Kayitol() {
       if (error.response && error.response.status === 404) {
         try {
           await axios.post(
-            "http://localhost:5000/users",
+            "https://hemacore.hattat.com.tr/internportalservice/users",
             payload
           );
           toast.success("Kullanıcı başarıyla oluşturuldu", {

@@ -14,7 +14,10 @@ function Stajyerler() {
       headers: { Authorization: `Bearer ${token}` },
     };
     const res = axios
-      .get("http://localhost:5000/users", config)
+      .get(
+        "https://hemacore.hattat.com.tr/internportalservice/users",
+        config
+      )
       .then((res) => {
         if (res.data && res.data.status) {
           setUsers(res.data.data);

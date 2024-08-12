@@ -18,7 +18,7 @@ export const getUsername = async (req, res) => {
     request.input("username", sql.VarChar, username);
 
     const result = await request.query(
-      `SELECT * FROM users WHERE username = '${username}'`
+      `SELECT * FROM stajyer_users WHERE username = '${username}'`
     );
 
     if (result.recordset.length > 0) {
@@ -44,7 +44,7 @@ export const getAllUsers = (req, res) => {
   // getAllUsers adında bir fonksiyon oluştur ve req ve res parametrelerini al
   new sql.Request().query(
     // Yeni bir SQL isteği oluştur ve query metodu ile sorguyu çalıştır
-    "SELECT * FROM users", // users tablosundan tüm kayıtları getir
+    "SELECT * FROM stajyer_users", // users tablosundan tüm kayıtları getir
     (err, result) => {
       // Eğer hata varsa reject ile hata döndür
       if (err) {
@@ -71,7 +71,7 @@ export const getUserById = (req, res) => {
   const { id } = req.params; // id'yi al
   new sql.Request().query(
     // Yeni bir SQL isteği oluştur ve query metodu ile sorguyu çalıştır
-    `SELECT * FROM users WHERE id = ${id}`, // users tablosundan id'si eşleşen kaydı getir
+    `SELECT * FROM stajyer_users WHERE id = ${id}`, // users tablosundan id'si eşleşen kaydı getir
     (err, result) => {
       // Eğer hata varsa hata yazdır.
       if (err) {
@@ -97,7 +97,7 @@ export const deleteUserById = (req, res) => {
   const { id } = req.params; // id'yi al
   new sql.Request().query(
     // Yeni bir SQL isteği oluştur ve query metodu ile sorguyu çalıştır
-    `DELETE FROM users WHERE id = ${id}`, // users tablosundan id'si eşleşen kaydı sil
+    `DELETE FROM stajyer_users WHERE id = ${id}`, // users tablosundan id'si eşleşen kaydı sil
     (err, result) => {
       // Eğer hata varsa hata yazdır.
       if (err) {
@@ -128,7 +128,7 @@ export const addUser = (req, res) => {
 
   new sql.Request().query(
     //sorgu oluştur ve query metodu ile sorguyu çalıştır
-    `INSERT INTO users (name, password, role, department, uni_department, github, username) VALUES ('${req.body.name}', '${req.body.password}', 'intern', '${req.body.department}', '${req.body.uni_department}', '${req.body.github}', '${req.body.username}');`,
+    `INSERT INTO stajyer_users (name, password, role, department, uni_department, github, username) VALUES ('${req.body.name}', '${req.body.password}', 'intern', '${req.body.department}', '${req.body.uni_department}', '${req.body.github}', '${req.body.username}');`,
     //users tablosuna yeni kayıt ekle
     (err, result) => {
       //hata varsa hata yazdır
@@ -161,7 +161,7 @@ export const updateUser = (req, res) => {
 
   new sql.Request().query(
     //yeni bir SQL isteği oluştur ve query metodu ile sorguyu çalıştır
-    `UPDATE users SET name ='${req.body.name}', password ='${req.body.password}' WHERE id = ${id};`, // users tablosundan id eşleşen ile name ve password güncelle
+    `UPDATE stajyer_users SET name ='${req.body.name}', password ='${req.body.password}' WHERE id = ${id};`, // users tablosundan id eşleşen ile name ve password güncelle
     (err, result) => {
       //hata varsa hata yazdır
       if (err) {

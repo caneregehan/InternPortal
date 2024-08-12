@@ -7,7 +7,9 @@ function Document() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/files")
+      .get(
+        "https://hemacore.hattat.com.tr/internportalservice/api/files"
+      )
       .then((response) => {
         setFiles(response.data);
       })
@@ -75,7 +77,7 @@ function Document() {
                 </svg>
 
                 <a
-                  href={`http://localhost:5000/public/uploads/${file}`}
+                  href={`https://hemacore.hattat.com.tr/internportalservice/public/uploads/${file}`}
                   className="text-blue-600 hover:underline"
                   download
                   target="_blank"

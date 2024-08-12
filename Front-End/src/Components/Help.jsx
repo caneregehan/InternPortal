@@ -67,6 +67,9 @@ export default function Help() {
                 </p>
               </div>
             </div>
+            {/* <div class="items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
+              <div class="p-5"></div>
+            </div> */}
           </div>
         </div>
       </section>

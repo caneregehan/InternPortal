@@ -12,7 +12,7 @@ export const loginUser = async (req, res) => {
 
     const result = await new Promise((resolve, reject) => {
       new sql.Request().query(
-        `SELECT * FROM users WHERE username = '${req.body.username}' AND role = '${req.body.role}'`,
+        `SELECT * FROM stajyer_users WHERE username = '${req.body.username}' AND role = '${req.body.role}'`,
         (err, result) => {
           if (err) {
             return response500CodeProvider(res);
@@ -66,7 +66,7 @@ export const loginUser = async (req, res) => {
     );
 
     const query =
-      "UPDATE users SET token = @accessToken WHERE id = @userId";
+      "UPDATE stajyer_users SET token = @accessToken WHERE id = @userId";
 
     const request = new sql.Request();
     request.input(
